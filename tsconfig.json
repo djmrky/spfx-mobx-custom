@@ -14,6 +14,6 @@
     "types": ["es6-promise", "webpack-env"],
     "lib": ["es5", "dom", "es2015.collection"]
   },
-  "include": ["src/**/*.ts", "src/webparts/mobXpoc/store/index.tsx", "src/webparts/mobXpoc/MobXpocWebPart.tsx", "src/webparts/mobXpoc/MobXpocWebPart.tsx"],
+  "include": ["src/**/*.ts", "src/webparts/mobXpoc/store/index.tsx", "src/webparts/mobXpoc/MobXpocWebPart.tsx", "src/webparts/mobXpoc/MobXpocWebPart.tsx", "src/webparts/mobXpoc/containers/IMobXpocProps.tsx", "src/webparts/mobXpoc/loc/mystrings.d.tsx"],
   "exclude": ["node_modules", "lib"]
 }

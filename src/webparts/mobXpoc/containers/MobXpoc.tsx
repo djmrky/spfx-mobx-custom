@@ -1,7 +1,9 @@
 import * as React from "react";
-import styles from "../components/MobXpoc.module.scss";
+import styles from "./MobXpoc.module.scss";
 import { IMobXpocProps } from "./IMobXpocProps";
 import { escape } from "@microsoft/sp-lodash-subset";
+
+import { Provider } from "mobx-react";
 
 export default class MobXpoc extends React.Component<IMobXpocProps, {}> {
   public render(): React.ReactElement<IMobXpocProps> {
