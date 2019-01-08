@@ -1,0 +1,12 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/package-solution.schema.json",
+  "solution": {
+    "name": "spfx-mobx-custom-client-side-solution",
+    "id": "699d96a4-2c19-4ad6-b68a-6c798a497003",
+    "version": "1.0.0.0",
+    "includeClientSideAssets": true
+  },
+  "paths": {
+    "zippedPackage": "solution/spfx-mobx-custom.sppkg"
+  }
+}
