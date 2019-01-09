@@ -1,6 +1,6 @@
 ## spfx-mobx-custom
 
-This is where you include your WebPart documentation.
+Demo of the mobx
 
 ### Building the code
 
