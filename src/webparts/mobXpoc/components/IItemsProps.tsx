@@ -1,6 +1,5 @@
 import { ICommonStore } from "../store/commonStore";
 
-export interface IMobXpocProps {
-  //description: string;
+export interface IItemsProps {
   commonStore: ICommonStore;
 }

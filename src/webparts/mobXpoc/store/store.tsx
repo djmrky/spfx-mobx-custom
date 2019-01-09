@@ -7,3 +7,5 @@ export interface IStore {
 export class Store implements IStore {
   commonStore: cs.CommonStore = cs.commonStore;
 }
+
+export let store = new Store();

@@ -2,27 +2,28 @@ import * as React from "react";
 import * as ReactDom from "react-dom";
 import { Version } from "@microsoft/sp-core-library";
 import { BaseClientSideWebPart, IPropertyPaneConfiguration, PropertyPaneTextField, IWebPartContext } from "@microsoft/sp-webpart-base";
-//import { Provider } from "mobx-react";
+import { Provider } from "mobx-react";
 
 import * as strings from "MobXpocWebPartStrings";
 import MobXpoc from "./containers/MobXpoc";
 import { IMobXpocProps } from "./containers/IMobXpocProps";
-//import Store from "./store";
+import * as store from "./store/store";
 
 export interface IMobXpocWebPartProps {
   description: string;
 }
 
 export default class MobXpocWebPart extends BaseClientSideWebPart<IMobXpocWebPartProps> {
-  //private store = new Store();
-
-  // constructor(context: IWebPartContext) {
-  //   super(context);
-  // }
   public render(): void {
-    const element: React.ReactElement<IMobXpocProps> = React.createElement(MobXpoc, {
-      description: this.properties.description
-    });
+    if (this.renderedOnce) {
+      return;
+    }
+
+    const element = (
+      <Provider {...store.store}>
+        <MobXpoc commonStore={store.store.commonStore} />
+      </Provider>
+    );
 
     ReactDom.render(element, this.domElement);
   }

@@ -3,25 +3,32 @@ import styles from "./MobXpoc.module.scss";
 import { IMobXpocProps } from "./IMobXpocProps";
 import { escape } from "@microsoft/sp-lodash-subset";
 
-import { Provider } from "mobx-react";
+import { observer, inject } from "mobx-react";
 
-export default class MobXpoc extends React.Component<IMobXpocProps, {}> {
+import { Items } from "../components/Items";
+
+//interfaces
+import { ICommonStore } from "../store/commonStore";
+import { store } from "../store/store";
+
+export class MobXpoc extends React.Component<IMobXpocProps, {}> {
   public render(): React.ReactElement<IMobXpocProps> {
     return (
       <div className={styles.mobXpoc}>
-        <div className={styles.container}>
-          <div className={styles.row}>
-            <div className={styles.column}>
-              <span className={styles.title}>Welcome to SharePoint!</span>
-              <p className={styles.subTitle}>Customize SharePoint experiences using Web Parts.</p>
-              <p className={styles.description}>{escape(this.props.description)}</p>
-              <a href="https://aka.ms/spfx" className={styles.button}>
-                <span className={styles.label}>Learn more</span>
-              </a>
-            </div>
-          </div>
-        </div>
+        Hello Mobx and {this.props.commonStore.name}
+        <button type="button" onClick={this.onChangeName}>
+          Change name
+        </button>
+        <Items commonStore={this.props.commonStore} />
       </div>
     );
   }
+
+  onChangeName = () => {
+    this.props.commonStore.onChangeName();
+  };
 }
+
+export default inject(store => ({
+  commonStore: store.commonStore as ICommonStore
+}))(observer(MobXpoc));
